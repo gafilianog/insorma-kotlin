@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="registerViewModel"
+            type="dev.gafilianog.insorma.ui.register.RegisterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="32dp"
+        tools:context=".ui.register.RegisterFragment">
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="50sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_email_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:autofillHints="emailAddress"
+            android:text="@={registerViewModel.inputEmailRegister}"
+            android:hint="@string/email_hint"
+            android:inputType="textEmailAddress"
+            app:layout_constraintTop_toBottomOf="@id/tv_brand_logo" />
+
+        <EditText
+            android:id="@+id/et_username_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:autofillHints="username"
+            android:text="@={registerViewModel.inputUsernameRegister}"
+            android:hint="@string/username_hint"
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@id/et_email_register" />
+
+        <EditText
+            android:id="@+id/et_phone_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:autofillHints="phone"
+            android:text="@={registerViewModel.inputPhoneRegister}"
+            android:hint="@string/phone_number_hint"
+            android:inputType="phone"
+            app:layout_constraintTop_toBottomOf="@id/et_username_register" />
+
+        <EditText
+            android:id="@+id/et_password_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:autofillHints="password"
+            android:text="@={registerViewModel.inputPasswordRegister}"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            app:layout_constraintTop_toBottomOf="@id/et_phone_register" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->registerViewModel.register()}"
+            android:text="@string/action_register"
+            app:layout_constraintBottom_toTopOf="@id/tv_info_login" />
+
+        <TextView
+            android:id="@+id/tv_info_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/msg_already_have_an_account"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_move_to_login"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_move_to_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/action_login"
+            android:onClick="@{()->registerViewModel.moveToLogin()}"
+            android:textColor="?attr/colorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_info_login" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

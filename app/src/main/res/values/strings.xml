@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">InSOrma</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="msg_forgot_password">Forgot Password?</string>
+    <string name="msg_don_t_have_an_account">Don\'t have an account?\u0020</string>
+    <string name="action_register">Register</string>
+    <string name="action_login">Login</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_edit_username">Edit Username</string>
+    <string name="action_save_username">Save Username</string>
+    <string name="action_delete_account">Delete Account</string>
+    <string name="username_hint">Username</string>
+    <string name="phone_number_hint">Phone number</string>
+    <string name="msg_already_have_an_account">Already have an account?\u0020</string>
+    <string name="msg_err_empty_field">All fields must not be empty!</string>
+    <string name="msg_err_email_not_valid">Email not valid!</string>
+    <string name="msg_err_email_not_unique">Email already registered!</string>
+    <string name="msg_err_username_not_unique">Username already exists!</string>
+    <string name="msg_err_username_length">Username must between 3–20 chars!</string>
+    <string name="msg_err_password_wrong">Wrong password!</string>
+    <string name="msg_err_password_not_valid">Password must contains number and letter!</string>
+    <string name="msg_err_email_not_found">Email not found!</string>
+    <string name="new_username_hint">New Username</string>
+</resources>
