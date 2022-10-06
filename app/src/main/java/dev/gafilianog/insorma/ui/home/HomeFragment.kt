@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import dev.gafilianog.insorma.R
 import dev.gafilianog.insorma.databinding.FragmentHomeBinding
 
@@ -25,10 +26,14 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.btnProfile.setOnClickListener {
-            it.findNavController().navigate(
-                HomeFragmentDirections.actionHomeFragmentToProfileFragment()
-            )
+        binding.toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.img_to_profile -> {
+                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToProfileFragment())
+                    true
+                }
+                else -> false
+            }
         }
     }
 

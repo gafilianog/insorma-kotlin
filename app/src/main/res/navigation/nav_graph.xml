@@ -46,7 +46,7 @@
         tools:layout="@layout/fragment_transaction_history" />
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="dev.gafilianog.insorma.ui.AboutFragment"
+        android:name="dev.gafilianog.insorma.ui.about.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
     <fragment
