@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dev.gafilianog.insorma.R
 import dev.gafilianog.insorma.databinding.FragmentHomeBinding
@@ -16,12 +16,17 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+
         return binding.root
     }
 
@@ -41,4 +46,6 @@ class HomeFragment : Fragment() {
         super.onDestroy()
         Log.d("Tes", "lmao from home")
     }
+
+
 }

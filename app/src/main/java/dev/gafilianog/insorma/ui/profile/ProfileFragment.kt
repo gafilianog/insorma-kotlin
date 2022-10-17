@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import dev.gafilianog.insorma.R
-import dev.gafilianog.insorma.data.local.InsormaDatabase
+import dev.gafilianog.insorma.data.local.db.InsormaDatabase
 import dev.gafilianog.insorma.data.local.LoggedInUserDatastoreImpl
 import dev.gafilianog.insorma.data.local.repos.UserRepository
 import dev.gafilianog.insorma.databinding.FragmentProfileBinding

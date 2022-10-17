@@ -1,11 +1,9 @@
-package dev.gafilianog.insorma.data.local
+package dev.gafilianog.insorma.data.local.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import dev.gafilianog.insorma.data.local.dao.ProductDao
-import dev.gafilianog.insorma.data.local.dao.TransactionDao
 import dev.gafilianog.insorma.data.local.dao.UsersDao
 import dev.gafilianog.insorma.data.model.Product
 import dev.gafilianog.insorma.data.model.Transaction
@@ -13,7 +11,7 @@ import dev.gafilianog.insorma.data.model.User
 
 @Database(
     entities = [Product::class, Transaction::class, User::class],
-    version = 1,
+    version = 3,
     exportSchema = false
 )
 abstract class InsormaDatabase : RoomDatabase() {
@@ -24,7 +22,7 @@ abstract class InsormaDatabase : RoomDatabase() {
 //    abstract fun transactionDao(): TransactionDao
 //    abstract val transactionDao: TransactionDao
 
-//    abstract fun usersDao(): UsersDao
+    //    abstract fun usersDao(): UsersDao
     abstract val usersDao: UsersDao
 
     companion object {

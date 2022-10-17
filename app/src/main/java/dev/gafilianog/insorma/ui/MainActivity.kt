@@ -8,7 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dev.gafilianog.insorma.R
-import dev.gafilianog.insorma.data.local.InsormaDatabase
+import dev.gafilianog.insorma.data.local.db.InsormaDatabase
 import dev.gafilianog.insorma.data.model.User
 import kotlinx.coroutines.launch
 
@@ -45,4 +45,8 @@ class MainActivity : AppCompatActivity() {
             )
         }
     }
+
+//    override fun onBackPressed() {
+//        // disable
+//    }
 }
