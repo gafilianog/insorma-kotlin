@@ -1,6 +1,5 @@
 package dev.gafilianog.insorma.ui.home
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,9 +19,13 @@ class HomeViewModel : ViewModel() {
 
     private fun getFurnitures() {
         viewModelScope.launch {
-            val listFurniture = InsormaApi.retrofitService.getProducts()
-            _products.value = listFurniture.furnitures
-            Log.d("WLAWLEO", _products.value!!.size.toString())
+            try {
+                _products.value = InsormaApi.retrofitService.getProducts().furnitures
+//                Log.d("WLAWLEO", _products.value!!.size.toString())
+            } catch (e: Exception) {
+                _products.value = listOf()
+                e.printStackTrace()
+            }
         }
     }
 }

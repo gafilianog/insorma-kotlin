@@ -34,7 +34,6 @@ android {
     }
     buildFeatures {
         dataBinding true
-        viewBinding true
     }
 }
 
@@ -67,6 +66,9 @@ dependencies {
 
     // Retrofit with Moshi
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+
+    // Coil
+    implementation "io.coil-kt:coil:2.2.2"
 
     // Room
     implementation 'androidx.room:room-runtime:2.4.3'

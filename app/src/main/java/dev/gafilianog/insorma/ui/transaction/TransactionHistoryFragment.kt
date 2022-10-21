@@ -1,4 +1,4 @@
-package dev.gafilianog.insorma.ui
+package dev.gafilianog.insorma.ui.transaction
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

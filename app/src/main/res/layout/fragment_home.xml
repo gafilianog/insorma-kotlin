@@ -34,7 +34,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="?attr/actionBarSize"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             android:paddingHorizontal="12dp"
+            app:spanCount="2"
+            app:listData="@{viewModel.products}"
             tools:listitem="@layout/item_row_furniture">
 
         </androidx.recyclerview.widget.RecyclerView>

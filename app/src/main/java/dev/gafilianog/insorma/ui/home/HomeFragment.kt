@@ -26,6 +26,7 @@ class HomeFragment : Fragment() {
 
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+        binding.rvFurniture.adapter = FurnitureAdapter()
 
         return binding.root
     }

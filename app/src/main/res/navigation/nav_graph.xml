@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/transactionHistoryFragment"
-        android:name="dev.gafilianog.insorma.ui.TransactionHistoryFragment"
+        android:name="dev.gafilianog.insorma.ui.transaction.TransactionHistoryFragment"
         android:label="fragment_transaction_history"
         tools:layout="@layout/fragment_transaction_history" />
     <fragment
