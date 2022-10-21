@@ -1,4 +1,4 @@
-package dev.gafilianog.insorma.ui
+package dev.gafilianog.insorma.util
 
 import android.widget.ImageView
 import androidx.core.net.toUri

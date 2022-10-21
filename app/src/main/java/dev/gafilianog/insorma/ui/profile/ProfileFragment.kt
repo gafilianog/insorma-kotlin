@@ -18,8 +18,6 @@ import dev.gafilianog.insorma.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
 
-    // TODO: DELETE ACCOUNT
-
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 

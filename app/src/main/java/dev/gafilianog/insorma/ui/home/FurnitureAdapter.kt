@@ -10,13 +10,12 @@ import dev.gafilianog.insorma.databinding.ItemRowFurnitureBinding
 
 class FurnitureAdapter : ListAdapter<Product, FurnitureAdapter.FurnitureHolder>(DiffCallback) {
 
-    companion object DiffCallback : DiffUtil.ItemCallback<Product>() {
-        override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
-            return oldItem.product_name == newItem.product_name
-        }
-
-        override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
-            return oldItem == newItem
+    class FurnitureHolder(
+        private var binding: ItemRowFurnitureBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(products: Product) {
+            binding.product = products
+            binding.executePendingBindings()
         }
     }
 
@@ -31,14 +30,18 @@ class FurnitureAdapter : ListAdapter<Product, FurnitureAdapter.FurnitureHolder>(
     override fun onBindViewHolder(holder: FurnitureHolder, position: Int) {
         val product = getItem(position)
         holder.bind(product)
+        holder.itemView.setOnClickListener {
+            //TODO
+        }
     }
 
-    class FurnitureHolder(
-        private var binding: ItemRowFurnitureBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(products: Product) {
-            binding.product = products
-            binding.executePendingBindings()
+    companion object DiffCallback : DiffUtil.ItemCallback<Product>() {
+        override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
+            return oldItem == newItem
+        }
+
+        override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
+            return oldItem.product_name == newItem.product_name
         }
     }
 }

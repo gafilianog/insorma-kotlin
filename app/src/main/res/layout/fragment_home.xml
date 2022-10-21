@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="viewModel"
+            name="homeViewModel"
             type="dev.gafilianog.insorma.ui.home.HomeViewModel" />
     </data>
 
@@ -22,7 +22,7 @@
                 android:id="@+id/toolbar"
                 style="@style/Widget.MaterialComponents.Toolbar.Primary"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="60dp"
                 app:menu="@menu/top_app_bar"
                 app:subtitle="John Doe"
                 app:title="Welcome" />
@@ -37,7 +37,7 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             android:paddingHorizontal="12dp"
             app:spanCount="2"
-            app:listData="@{viewModel.products}"
+            app:listData="@{homeViewModel.products}"
             tools:listitem="@layout/item_row_furniture">
 
         </androidx.recyclerview.widget.RecyclerView>

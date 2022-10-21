@@ -18,7 +18,6 @@ class ProfileViewModel(
 
     var userEmail: String? = null
     var userPhone: String? = null
-//    var userUsername: String? = null
 
     @Bindable
     val inputNewUsername = MutableLiveData<String?>()

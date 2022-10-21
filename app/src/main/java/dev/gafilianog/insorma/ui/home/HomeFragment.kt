@@ -10,13 +10,18 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dev.gafilianog.insorma.R
+import dev.gafilianog.insorma.data.local.LoggedInUserDatastoreImpl
 import dev.gafilianog.insorma.databinding.FragmentHomeBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by viewModels()
+//    private lateinit var loggedInUserDatastoreImpl: LoggedInUserDatastoreImpl
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,8 +30,10 @@ class HomeFragment : Fragment() {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
         binding.lifecycleOwner = this
-        binding.viewModel = viewModel
+        binding.homeViewModel = viewModel
         binding.rvFurniture.adapter = FurnitureAdapter()
+
+        //TODO: Get username bind to appbar
 
         return binding.root
     }
@@ -47,6 +54,4 @@ class HomeFragment : Fragment() {
         super.onDestroy()
         Log.d("Tes", "lmao from home")
     }
-
-
 }

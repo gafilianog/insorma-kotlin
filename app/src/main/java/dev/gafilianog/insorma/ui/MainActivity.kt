@@ -3,16 +3,24 @@ package dev.gafilianog.insorma.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dev.gafilianog.insorma.R
 import dev.gafilianog.insorma.data.local.db.InsormaDatabase
+import dev.gafilianog.insorma.data.model.Product
 import dev.gafilianog.insorma.data.model.User
+import dev.gafilianog.insorma.data.remote.FurnitureData
+import dev.gafilianog.insorma.data.remote.InsormaApi
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+
+//    lateinit var products: List<Product>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +36,8 @@ class MainActivity : AppCompatActivity() {
                 nav.visibility = View.GONE
             } else nav.visibility = View.VISIBLE
         }
-//        dummyDb()
+
+        FurnitureData.getFurnitureData()
     }
 
     private fun dummyDb() {
