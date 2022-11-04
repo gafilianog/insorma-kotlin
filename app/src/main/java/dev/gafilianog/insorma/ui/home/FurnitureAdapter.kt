@@ -2,6 +2,7 @@ package dev.gafilianog.insorma.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -30,8 +31,11 @@ class FurnitureAdapter : ListAdapter<Product, FurnitureAdapter.FurnitureHolder>(
     override fun onBindViewHolder(holder: FurnitureHolder, position: Int) {
         val product = getItem(position)
         holder.bind(product)
+
         holder.itemView.setOnClickListener {
-            //TODO
+            holder.itemView.findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToDetailFragment(position)
+            )
         }
     }
 

@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
             } else nav.visibility = View.VISIBLE
         }
 
+        // For convenience faster load in home page, retrieve data when opening app
         FurnitureData.getFurnitureData()
     }
 

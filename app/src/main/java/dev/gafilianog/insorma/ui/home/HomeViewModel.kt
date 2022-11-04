@@ -21,16 +21,4 @@ class HomeViewModel : ViewModel() {
     init {
         _products.value = FurnitureData.products
     }
-
-//    private fun getFurnitures() {
-//        viewModelScope.launch {
-//            try {
-//                _products.value = InsormaApi.retrofitService.getProducts().furnitures
-////                Log.d("WLAWLEO", _products.value!!.size.toString())
-//            } catch (e: Exception) {
-//                _products.value = listOf()
-//                e.printStackTrace()
-//            }
-//        }
-//    }
 }

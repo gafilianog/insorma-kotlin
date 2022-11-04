@@ -1,14 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.detail.DetailFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+        <variable
+            name="detailViewModel"
+            type="dev.gafilianog.insorma.ui.detail.DetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".ui.detail.DetailFragment">
 
-</FrameLayout>
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ImageView
+            android:id="@+id/img_product_detail"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:fitsSystemWindows="true"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{detailViewModel.image}"
+            app:layout_constraintTop_toBottomOf="@id/appBar"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_product_name_detail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            tools:text="Barang Bagus"
+            android:text="@{detailViewModel.name}"
+            style="@style/TextAppearance.AppCompat.Title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_product_detail" />
+
+        <TextView
+            android:id="@+id/tv_product_price_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            tools:text="Rp 999"
+            android:text="@{@string/info_currency_name(detailViewModel.price)}"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/purple_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_product_detail" />
+
+        <TextView
+            android:id="@+id/tv_product_rating_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/teal_700"
+            android:text="@{@string/info_rating(detailViewModel.rating)}"
+            tools:text="Rating: 4.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_name_detail" />
+
+        <TextView
+            android:id="@+id/tv_desc_info"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            style="@style/TextAppearance.Material3.TitleSmall"
+            android:text="Description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_rating_detail" />
+
+        <TextView
+            android:id="@+id/tv_desc_content"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_desc_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"
+            android:text="@{detailViewModel.desc}"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla eget turpis in porta. Nunc sit amet varius justo. Phasellus sit amet efficitur orci. Duis ut mauris dignissim, tristique nulla a, ultrices ligula. Vestibulum aliquam tincidunt mattis. Nulla elit enim, gravida a erat eu, sagittis sollicitudin neque. Cras aliquet diam id imperdiet fermentum. Sed porttitor augue diam, in fermentum neque vestibulum eu. Proin et sodales justo, eget mattis ex. Pellentesque dictum aliquet est eget ultrices."
+            android:layout_marginHorizontal="16dp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/img_btn_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="24dp"
+            android:src="@drawable/ic_baseline_remove_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="0"
+            android:textColor="@color/purple_700"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/img_btn_plus"
+            app:layout_constraintStart_toEndOf="@+id/img_btn_minus" />
+
+        <ImageView
+            android:id="@+id/img_btn_plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="24dp"
+            android:src="@drawable/ic_baseline_add_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_btn_minus" />
+
+        <Button
+            android:id="@+id/btn_buy"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Buy"
+            app:icon="@drawable/ic_baseline_shopping_cart_24"
+            app:iconGravity="textStart"
+            android:onClick="@{()->detailViewModel.buy()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
