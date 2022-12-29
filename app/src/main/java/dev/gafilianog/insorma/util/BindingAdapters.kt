@@ -1,8 +1,10 @@
 package dev.gafilianog.insorma.util
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
+import androidx.databinding.InverseBindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import dev.gafilianog.insorma.R
@@ -24,3 +26,15 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
         }
     }
 }
+
+//@BindingAdapter("qty")
+//fun setQty(view: TextView, qty: Int?) {
+//    if (view.text != qty.toString()) {
+//        view.text = "" + qty
+//    }
+//}
+//
+//@InverseBindingAdapter(attribute = "qty")
+//fun getQty(view: TextView): Int {
+//    return view.text.toString().toIntOrNull() ?: 0
+//}

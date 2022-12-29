@@ -11,18 +11,11 @@ import dev.gafilianog.insorma.data.model.User
 
 @Database(
     entities = [Product::class, Transaction::class, User::class],
-    version = 3,
+    version = 4,
     exportSchema = false
 )
 abstract class InsormaDatabase : RoomDatabase() {
 
-//    abstract fun productDao(): ProductDao
-//    abstract val productDao: ProductDao
-
-//    abstract fun transactionDao(): TransactionDao
-//    abstract val transactionDao: TransactionDao
-
-    //    abstract fun usersDao(): UsersDao
     abstract val usersDao: UsersDao
 
     companion object {

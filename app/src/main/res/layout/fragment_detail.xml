@@ -5,6 +5,10 @@
 
     <data>
         <variable
+            name="product"
+            type="dev.gafilianog.insorma.data.model.Product" />
+
+        <variable
             name="detailViewModel"
             type="dev.gafilianog.insorma.ui.detail.DetailViewModel" />
     </data>
@@ -12,6 +16,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
         tools:context=".ui.detail.DetailFragment">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -37,7 +42,7 @@
             android:layout_height="400dp"
             android:fitsSystemWindows="true"
             android:scaleType="centerCrop"
-            app:imageUrl="@{detailViewModel.image}"
+            app:imageUrl="@{product.image}"
             app:layout_constraintTop_toBottomOf="@id/appBar"
             tools:src="@tools:sample/avatars" />
 
@@ -48,7 +53,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             tools:text="Barang Bagus"
-            android:text="@{detailViewModel.name}"
+            android:text="@{product.product_name}"
             style="@style/TextAppearance.AppCompat.Title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_product_detail" />
@@ -60,7 +65,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             tools:text="Rp 999"
-            android:text="@{@string/info_currency_name(detailViewModel.price)}"
+            android:text="@{@string/info_currency_name(product.price)}"
             style="@style/TextAppearance.AppCompat.Title"
             android:textColor="@color/purple_500"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +78,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:textColor="@color/teal_700"
-            android:text="@{@string/info_rating(detailViewModel.rating)}"
+            android:text="@{@string/info_rating(product.rating)}"
             tools:text="Rating: 4.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_product_name_detail" />
@@ -96,7 +101,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="4dp"
-            android:text="@{detailViewModel.desc}"
+            android:text="@{product.description}"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
             tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla eget turpis in porta. Nunc sit amet varius justo. Phasellus sit amet efficitur orci. Duis ut mauris dignissim, tristique nulla a, ultrices ligula. Vestibulum aliquam tincidunt mattis. Nulla elit enim, gravida a erat eu, sagittis sollicitudin neque. Cras aliquet diam id imperdiet fermentum. Sed porttitor augue diam, in fermentum neque vestibulum eu. Proin et sodales justo, eget mattis ex. Pellentesque dictum aliquet est eget ultrices."
             android:layout_marginHorizontal="16dp"
@@ -107,19 +112,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginBottom="24dp"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginBottom="24dp"
+            android:onClick="@{()->detailViewModel.decreaseQty()}"
             android:src="@drawable/ic_baseline_remove_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/tv_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:text="0"
+            android:text="@{detailViewModel.qty}"
             android:textColor="@color/purple_700"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -131,12 +138,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
+            android:layout_marginBottom="24dp"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginBottom="24dp"
+            android:onClick="@{()->detailViewModel.increaseQty()}"
             android:src="@drawable/ic_baseline_add_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/img_btn_minus" />
+            app:layout_constraintStart_toEndOf="@+id/img_btn_minus"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/btn_buy"

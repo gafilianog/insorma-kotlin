@@ -20,8 +20,6 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-//    lateinit var products: List<Product>
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         nav.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, nd, _ ->
-            if (nd.id == R.id.loginFragment || nd.id == R.id.registerFragment || nd.id == R.id.profileFragment) {
+            if (nd.id == R.id.loginFragment || nd.id == R.id.registerFragment || nd.id == R.id.profileFragment || nd.id == R.id.detailFragment) {
                 nav.visibility = View.GONE
             } else nav.visibility = View.VISIBLE
         }
