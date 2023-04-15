@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(
     foreignKeys = [
@@ -26,6 +27,5 @@ data class Transaction(
     val userId: Int,
     val productId: String,
 //    val transactionDate: Date,
-    // TODO: How to store Date in Room
     val quantity: Int,
 )

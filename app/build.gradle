@@ -7,12 +7,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "dev.gafilianog.insorma"
         minSdk 23
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -46,6 +46,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.core:core-ktx:+'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -72,6 +73,7 @@ dependencies {
 
     // Room
     implementation 'androidx.room:room-runtime:2.4.3'
+    androidTestImplementation 'junit:junit:4.12'
     kapt 'androidx.room:room-compiler:2.4.3'
     implementation 'androidx.room:room-ktx:2.4.3'
 }
