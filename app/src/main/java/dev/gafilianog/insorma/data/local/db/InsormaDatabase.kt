@@ -4,21 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import dev.gafilianog.insorma.data.local.dao.TransactionDao
-import dev.gafilianog.insorma.data.local.dao.UsersDao
 import dev.gafilianog.insorma.data.model.Product
-import dev.gafilianog.insorma.data.model.Transaction
 import dev.gafilianog.insorma.data.model.User
 
 @Database(
-    entities = [Product::class, Transaction::class, User::class],
-    version = 4,
+    entities = [Product::class, User::class],
+    version = 5,
     exportSchema = false
 )
 abstract class InsormaDatabase : RoomDatabase() {
-
-    abstract val usersDao: UsersDao
-    abstract val transactionDao: TransactionDao
 
     companion object {
         @Volatile

@@ -10,7 +10,7 @@ object FurnitureData {
     fun getFurnitureData() {
         GlobalScope.launch {
             try {
-                products = InsormaApi.retrofitService.getProducts().furnitures
+                products = ApiClient.api.getProducts().furnitures
             } catch (e: Exception) {
                 products = emptyList()
                 e.printStackTrace()

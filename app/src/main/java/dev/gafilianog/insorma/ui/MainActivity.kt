@@ -14,7 +14,6 @@ import dev.gafilianog.insorma.data.local.db.InsormaDatabase
 import dev.gafilianog.insorma.data.model.Product
 import dev.gafilianog.insorma.data.model.User
 import dev.gafilianog.insorma.data.remote.FurnitureData
-import dev.gafilianog.insorma.data.remote.InsormaApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -39,20 +38,20 @@ class MainActivity : AppCompatActivity() {
         FurnitureData.getFurnitureData()
     }
 
-    private fun dummyDb() {
-        val db: InsormaDatabase by lazy { InsormaDatabase.getDatabase(this) }
-
-        lifecycleScope.launch {
-            db.usersDao.insertUser(User(
-                1,
-                "admin@mail.com",
-                "admin",
-                "08123456789",
-                "a1"
-            )
-            )
-        }
-    }
+//    private fun dummyDb() {
+//        val db: InsormaDatabase by lazy { InsormaDatabase.getDatabase(this) }
+//
+//        lifecycleScope.launch {
+//            db.usersDao.insertUser(User(
+//                1,
+//                "admin@mail.com",
+//                "admin",
+//                "08123456789",
+//                "a1"
+//            )
+//            )
+//        }
+//    }
 
 //    override fun onBackPressed() {
 //        // disable

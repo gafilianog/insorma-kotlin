@@ -68,7 +68,7 @@ class ProfileViewModel(
                 _editErrStatus.value = true
             } else {
                 if (user != null) {
-                    userRepo.updateUsername(newUsername, user._id)
+                    userRepo.updateUsername(newUsername, user.id)
                     _userUsername.value = newUsername
                     loggedInUserDatastore.setNewUsername(newUsername)
                     _editUsernameStatus.value = false

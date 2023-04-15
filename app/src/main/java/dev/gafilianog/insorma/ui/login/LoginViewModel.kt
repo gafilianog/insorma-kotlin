@@ -9,7 +9,11 @@ import androidx.lifecycle.viewModelScope
 import dev.gafilianog.insorma.R
 import dev.gafilianog.insorma.data.local.LoggedInUserDatastoreImpl
 import dev.gafilianog.insorma.data.local.repos.UserRepository
+import dev.gafilianog.insorma.data.remote.ApiClient
+import dev.gafilianog.insorma.data.remote.LoginRequest
+import dev.gafilianog.insorma.data.remote.LoginResponse
 import kotlinx.coroutines.launch
+import retrofit2.Call
 
 class LoginViewModel(
     private val userRepo: UserRepository,
@@ -44,22 +48,24 @@ class LoginViewModel(
             _loginErrStatus.value = true
         } else {
             viewModelScope.launch {
-                val user = userRepo.getUserByEmail(inputEmail.value!!)
+                val message = ApiClient.api.login(
+                    LoginRequest(
+                        inputEmail.value!!,
+                        inputPassword.value!!
+                    )
+                ).message
 
-                if (user != null) {
-                    if (user.password == inputPassword.value) {
-                        loggedInUserDatastore.setLoggedInUser(
-                            user.emailAddress,
-                            user.username,
-                            user.phoneNumber,
-                        )
-                        inputEmail.value = null
-                        inputPassword.value = null
-                        _navigateToHome.value = true
-                    } else {
-                        _loginErrMsg = R.string.msg_err_password_wrong
-                        _loginErrStatus.value = true
-                    }
+                if (message == "Access granted") {
+                    val user = ApiClient.api.getHome()
+
+                    loggedInUserDatastore.setLoggedInUser(
+                        user.email,
+                        user.name,
+                        user.password,
+                    )
+                    inputEmail.value = null
+                    inputPassword.value = null
+                    _navigateToHome.value = true
                 } else {
                     _loginErrMsg = R.string.msg_err_email_not_found
                     _loginErrStatus.value = true
